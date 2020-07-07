@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+
+    "name": "Genuine Delivery Finder",
+    "description": "Find open slots for many grocery delivery services (Costco, Instacart, etc)",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_popup": "view/index.html"
+    },
+  "background": {
+    "scripts": ["background/background.js"],
+    "persistent": false
+  },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "cookies",
+        "notifications",
+        "<all_urls>"
+    ]
+}
