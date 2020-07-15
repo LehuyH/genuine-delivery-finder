@@ -4,38 +4,125 @@
 <head>
     <title>Genuine Delivery Finder</title>
     <link rel="stylesheet" href="./css/root.css">
+    <link rel="stylesheet" href="./css/bulma.min.css">
 </head>
 
 <body class="d-flex flex-direction-column">
-    <h1 class="heading">Genuine Delivery Discover</h1>
-
     <div id="viewManager">
         <div data-name="Onboarding" class="is-view">
-            onboarding idk what to put here lol 
+            <section class="hero is-primary mb-4" style="background-color:#95AAB4;">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                     Choose a provider
+                    </h1>
+                  </div>
+                </div>
+              </section>
+              <div class="container has-text-centered">
+                <div class="field">
+                    <div class="control">
+                      <div class="select is-primary">
+                        <select id="provider">
+                          <option>Instacart</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                <button id="searchBtn" class="button is-primary mb-4">
+                    Search
+                  </button>
+              </div>
         </div>
 
         <div data-name="Search" class="is-view">
-            <button class="btn" id="searchBtn">
-                <h2 id="search">Search for openings...</h2>
-            </button>
+            <section class="hero is-primary" style="background-color:#95AAB4;">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                      Project Genuine
+                    </h1>
+                    <h2 class="subtitle">
+                        Delivery Slot Finder
+                    </h2>
+                  </div>
+                </div>
+                
+                <button id="start" class="button is-primary">
+                    Begin
+                  </button>
+              </section>
         </div>
 
         <div data-name="Loading" class="is-view">
-            <h1>Loading Slots...</h1>
+            <section class="hero is-primary" style="background-color:#95AAB4;">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                     Finding Slots...
+                    </h1>
+                    <h2 class="subtitle">
+                        This may take a minute
+                    </h2>
+                  </div>
+                </div>
+              </section>
         </div>
 
-        <div data-name="Results" class="is-view">
-            <h2>Results:</h2>
-            <hr>
+        <div data-name="loginError" class="is-view">
+            <section class="hero is-danger">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                      Login error!
+                    </h1>
+                    <h2 class="subtitle">
+                        To use this app, please login make sure you have logged in to your selected provider
+                    </h2>
+                  </div>
+                </div>
+                
+                <button class="return button is-primary">
+                    Return
+                  </button>
+              </section>
+        </div>
+        <div data-name="generalError" class="is-view">
+            <section class="hero is-danger">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                      Unknown Error
+                    </h1>
+                    <h2 class="subtitle">
+                        We failed to fetch slot data, please try again in a minute
+                    </h2>
+                  </div>
+                </div>
+                
+                <button class="return button is-primary">
+                    Return
+                  </button>
+              </section>
+        </div>
 
-            <!-- Example Result? -->
-            <div class="result">
-                <h3>7:30 @ Costco</h3>
-                <a class="btn" target="_blank" href="https://costco-royale.io">
-                    Signup for this slot!
-                </a>
-            </div>
-            <p id="status"></p>
+        <div data-name="Success" class="is-view">
+            <section class="hero is-success">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                     Slots are Available!
+                    </h1>
+                    <h2 class="subtitle">
+                       There are delivery slots available for your provider
+                    </h2>
+                  </div>
+                </div>
+                
+                <button class="return button is-primary">
+                    Home
+                </button>
+              </section>
         </div>
     </div>
     <script type="text/javascript" src="./js/chrome-extension-async.js"></script>

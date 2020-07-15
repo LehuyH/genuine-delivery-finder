@@ -1,89 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=MuseoModerno:wght@300&display=swap");
-@import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
 
-/* <-- Vars --> */
-:root {
-    --font-main: "Fira Sans", sans-serif;
-    --font-heading: "MuseoModerno", sans-serif;
-
-    --fore: white;
-    --back: rgb(30, 44, 68);
-    --fore-accent: cornflowerblue;
-    --back-accent: rgb(18, 27, 43);
-}
-
-/* <-- Reset --> */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-weight: 300;
-    overflow: hidden;
-    color: var(--fore);
-    font-family: var(--font-main);
-    border-radius: 0;
-}
-
-html { font-size: 16px; }
-
-body {
-    width: 600px;
-    height: 600px;
-    background: var(--back);
-    border: 1px solid var(--fore);
-}
-
-body * {
-    padding: 0.5rem;
-}
-
-/* <-- Heading --> */
-.heading {
-    font-family: var(--font-heading);
-    font-size: 2.25rem;
-    color: var(--fore-accent);
-    text-align: center;
-    background: var(--back-accent);
-}
-
-/* <-- Flexbox Utils --> */
-.d-flex { display: flex; }
-.flex-direction-column { flex-direction: column; }
-.flex-1 { flex: 1; }
-.justify-content-center { justify-content: center; }
-.justify-content-start { justify-content: start; }
-.justify-content-end { justify-content: end; }
-.align-items-center { align-items: center; }
-.align-items-start { align-items: start; }
-.align-items-end { align-items: end; }
-
-/* <-- Components --> */
-
-/* Button */
-.btn {
-    display: inline-block;
-    margin: 0.25rem;
-    background: transparent;
-    border: 1px solid var(--fore-accent);
-    --btn-text-color: var(--fore-accent);
-    text-decoration: none;
-}
-
-.btn, .btn * { color: var(--btn-text-color); }
-
-.btn:hover, .btn:focus, .btn:active {
-    background: var(--fore-accent);
-    color: var(--fore);
-    --btn-text-color: var(--fore-color);
-}
-
-/* hr */
-hr {
-    padding: 0;
-    margin: 0.25rem;
-    border: none;
-    border-top: var(--fore-accent) 1px solid;
-}
 
 /* <-- Views --> */
 #viewManager {
@@ -93,14 +8,13 @@ hr {
 
 .is-view {
     height: 100%;
-    position: absolute;
     display: none;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
 }
 
 .is-view.current-view {
-    display: flex;
+    display: block;
     width: 100%;
 }
 
