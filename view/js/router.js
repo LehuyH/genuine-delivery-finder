@@ -5,7 +5,7 @@ export const router = {
         return this.element.querySelector(".is-view.current-view");
     },
 
-    go(viewName) {
+    async go(viewName) {
         let animateOut = false;
 
         // Perform checks only if existing view:
@@ -35,6 +35,4 @@ export const router = {
     },
     onShow: {}
 };
-
-router.go("SplashScreen");
 

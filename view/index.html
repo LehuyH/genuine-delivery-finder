@@ -8,125 +8,127 @@
     <link rel="stylesheet" href="./css/views.css">
 </head>
 
-<body class="d-flex flex-direction-column">
-    <div id="viewManager">
-        <div data-name="SplashScreen" class="is-view">
-            <section class="hero is-primary" style="background-color:#95AAB4;">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Project Genuine
-                        </h1>
-                        <h2 class="subtitle">
-                            Delivery Slot Finder
-                        </h2>
-                    </div>
+<body id="viewManager" class="d-flex flex-direction-column">
+    <!-- Main splash screen, show by default -->
+    <div data-name="SplashScreen" class="is-view current-view" style="opacity: 1;">
+        <section class="hero is-primary" style="background-color:#95AAB4;">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Project Genuine
+                    </h1>
+                    <h2 class="subtitle">
+                        Delivery Slot Finder
+                    </h2>
                 </div>
-
-                <button id="start" class="button is-primary">
-                    Begin
-                </button>
-            </section>
-        </div>
-
-        <div data-name="ProviderChoice" class="is-view">
-            <section class="hero is-primary mb-4" style="background-color:#95AAB4;">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Choose a provider
-                        </h1>
-                    </div>
-                </div>
-            </section>
-            <div class="container has-text-centered">
-                <div class="field">
-                    <div class="control">
-                        <div class="select is-primary">
-                            <select id="provider">
-                                <option>Instacart</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <button id="searchBtn" class="button is-primary mb-4">
-                    Search
-                </button>
             </div>
-        </div>
 
-        <div data-name="SlotLoader" class="is-view">
-            <section class="hero is-primary" style="background-color:#95AAB4;">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Finding Slots...
-                        </h1>
-                        <h2 class="subtitle">
-                            This may take a minute
-                        </h2>
+            <button id="start" class="button is-primary">
+                Begin
+            </button>
+        </section>
+    </div>
+
+    <!-- Onboarding, choose provider (instacart, etc..) -->
+    <div data-name="ProviderChoice" class="is-view">
+        <section class="hero is-primary mb-4" style="background-color:#95AAB4;">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Choose a provider
+                    </h1>
+                </div>
+            </div>
+        </section>
+        <div class="container has-text-centered">
+            <div class="field">
+                <div class="control">
+                    <div class="select is-primary">
+                        <select id="provider">
+                            <option>Instacart</option>
+                        </select>
                     </div>
                 </div>
-            </section>
+            </div>
+            <button id="searchBtn" class="button is-primary mb-4">
+                Search
+            </button>
         </div>
+    </div>
 
-        <div data-name="SuccessDisplay" class="is-view">
-            <section class="hero is-success">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Slots are Available!
-                        </h1>
-                        <h2 class="subtitle">
-                            There are delivery slots available for your provider
-                        </h2>
-                    </div>
+    <!-- Loading screen while background fetch is loading -->
+    <div data-name="SlotLoader" class="is-view">
+        <section class="hero is-primary" style="background-color:#95AAB4;">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Finding Slots...
+                    </h1>
+                    <h2 class="subtitle">
+                        This may take a minute
+                    </h2>
                 </div>
+            </div>
+        </section>
+    </div>
 
-                <button class="return button is-primary">
-                    Home
-                </button>
-            </section>
-        </div>
-
-        <!-- Errors Pages -->
-        <div data-name="LoginError" class="is-view">
-            <section class="hero is-danger">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Login error!
-                        </h1>
-                        <h2 class="subtitle">
-                            To use this app, please login make sure you have logged in to your selected provider
-                        </h2>
-                    </div>
+    <!-- Show this view if slot data got loaded -->
+    <div data-name="SuccessDisplay" class="is-view">
+        <section class="hero is-success">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Slots are Available!
+                    </h1>
+                    <h2 class="subtitle">
+                        There are delivery slots available for your provider
+                    </h2>
                 </div>
+            </div>
 
-                <button class="return button is-primary">
-                    Return
-                </button>
-            </section>
-        </div>
+            <button class="return button is-primary">
+                Home
+            </button>
+        </section>
+    </div>
 
-        <div data-name="GeneralError" class="is-view">
-            <section class="hero is-danger">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            Unknown Error
-                        </h1>
-                        <h2 class="subtitle">
-                            We failed to fetch slot data, please try again in a minute
-                        </h2>
-                    </div>
+    <!-- Errors Pages -->
+    <div data-name="LoginError" class="is-view">
+        <section class="hero is-danger">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Login error!
+                    </h1>
+                    <h2 class="subtitle">
+                        To use this app, please login make sure you have logged in to your selected provider
+                    </h2>
                 </div>
+            </div>
 
-                <button class="return button is-primary">
-                    Return
-                </button>
-            </section>
-        </div>
+            <button class="return button is-primary">
+                Return
+            </button>
+        </section>
+    </div>
+
+    <div data-name="GeneralError" class="is-view">
+        <section class="hero is-danger">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Unknown Error
+                    </h1>
+                    <h2 class="subtitle">
+                        We failed to fetch slot data, please try again in a minute
+                    </h2>
+                </div>
+            </div>
+
+            <button class="return button is-primary">
+                Return
+            </button>
+        </section>
     </div>
 
     <!-- Entry point for client-side logic -->
