@@ -1,53 +1,29 @@
-// Provider Store ----
-let selectedProvider = null
-// Events-------
-
-//views
+// Bind click events to view changes:
 document.querySelector("#start").addEventListener("click", () => router.go("Onboarding"))
-document.querySelectorAll(".return").forEach((e)=>{
-    e.addEventListener("click", () => router.go("Search"))
-   
-   })
+document.querySelectorAll(".return").forEach((e) => e.addEventListener("click", () => router.go("Search")))
 
 
-//select provider
-document.querySelector("#searchBtn")
-    .addEventListener("click", async () => {
-        router.go("Loading")
-        let provider = document.querySelector("#provider").value
-        selectedProvider = provider
-        //Fetch data
-        chrome.runtime.sendMessage({
-            type: provider
-        }, function (res) {
-            //Check for errors
-            if (res.data.error) {
-                switch (res.data.error.message) {
-                    case "Unauthorized":
-                        router.go("loginError")
-                }
+// Select provider, move to loader in UI:
+document.querySelector("#searchBtn").addEventListener("click", () => router.go("Loading"));
 
-            } else if (typeof res.data.service_options !== 'undefined') { // Success!
-                
-                if(res.data.service_options)
-                router.go('Success')
-            } else { //Random error
-                router.go('generalError')
+// Fetch provider data & slots:
+router.onShow.Loading = () => {
+    // Fetch data, load cookies, etc. here
+    let provider = document.querySelector("#provider").value;
+    // Fetch data from background
+    chrome.runtime.sendMessage({ type: provider }, res => {
+        // Check for real errors:
+        if (res.data.error) {
+            switch (res.data.error.message) {
+                case "Unauthorized": return router.go("loginError");
             }
-
-        });
-
-
-
+        }
+        // Incorrect response 
+        else if (!Array.isArray(res.data)) {
+            if (res.data.service_options) router.go('Success')
+            else router.go('generalError');
+        }
+        // Actually successful lmao:
+        else showSlots(res.data);
     });
-
-router.onShow.Loading = async () => {
-    /*
-        Fetch data, load cookies, etc. here
-    */
-    // const cookies = await getCookies('https://www.instacart.com/store/checkout_v3',"_instacart_session")
-
-
-    // Timeout only for testing, remove later:
-
 }
