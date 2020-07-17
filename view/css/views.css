@@ -1,0 +1,20 @@
+/* <-- View Container --> */
+#viewManager {
+    flex: 1;
+    padding: 0;
+}
+
+/* Default View Styles */
+.is-view {
+    height: 100%;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+/* Class-based show/hide toggle */
+.is-view.current-view {
+    display: block;
+    width: 100%;
+}
+

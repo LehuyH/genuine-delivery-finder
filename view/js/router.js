@@ -1,4 +1,4 @@
-const router = {
+export const router = {
     element: document.querySelector("#viewManager"),
 
     get currentView() {
@@ -36,5 +36,5 @@ const router = {
     onShow: {}
 };
 
-router.go("Search");
+router.go("SplashScreen");
 
